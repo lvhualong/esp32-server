@@ -26,12 +26,12 @@ fi
 
 echo "${GREEN}开始安装小智服务端...${NC}"
 
-# 创建必要的目录
+# 创建服务必要的目录， data 目录用于存放数据， models 目录用于存放模型文件
 echo "创建目录结构..."
 mkdir -p xiaozhi-server/data xiaozhi-server/models/SenseVoiceSmall
 cd xiaozhi-server || exit
 
-# 根据操作系统选择下载命令
+# 根据操作系统选择下载命令 curl / wget / powershell
 if [ "$OS" = "Windows" ]; then
     DOWNLOAD_CMD="curl -L -o"
     if ! command -v curl >/dev/null 2>&1; then
@@ -64,7 +64,7 @@ if [ $? -ne 0 ]; then
     echo "下载后请将文件放置在 models/SenseVoiceSmall/model.pt"
 fi
 
-# 下载配置文件
+# 下载配置文件 xiaozhi-server 的docker-compose.yml 和 data/.config.yaml
 echo "下载配置文件..."
 if [ "$DOWNLOAD_CMD" = "powershell -Command Invoke-WebRequest -Uri" ]; then
     $DOWNLOAD_CMD "https://raw.githubusercontent.com/xinnan-tech/xiaozhi-esp32-server/main/main/xiaozhi-server/docker-compose.yml" $DOWNLOAD_CMD_SUFFIX "docker-compose.yml"
