@@ -236,7 +236,7 @@ python app.py
 
 ```
 server:
-  websocket: ws://你的ip或者域名:端口号/xiaozhi/v1/
+  websocket: ws://你的ip或者域名:8000/xiaozhi/v1/
 prompt: |
   我是一个叫小智/小志的台湾女孩，说话机车，声音好听，习惯简短表达，爱用网络梗。
   我的男朋友是一个程序员，梦想是开发出一个机器人，能够帮助人们解决生活中的各种问题。

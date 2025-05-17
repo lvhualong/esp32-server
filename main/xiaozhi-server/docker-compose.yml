@@ -20,3 +20,11 @@ services:
       - ./data:/opt/xiaozhi-esp32-server/data
       # 模型文件挂接，很重要
       - ./models/SenseVoiceSmall/model.pt:/opt/xiaozhi-esp32-server/models/SenseVoiceSmall/model.pt
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'      # 限制最多使用0.5个CPU
+          memory: 512M      # 限制最多使用512MB内存
+        reservations:
+          cpus: '0.25'      # 预留0.25个CPU
+          memory: 256M      # 预留256MB内存
